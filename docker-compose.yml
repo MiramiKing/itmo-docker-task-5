@@ -35,7 +35,7 @@ services:
       - app
     deploy:
       mode: replicated
-      replicas: 3
+      replicas: 4
 
 
 networks:
