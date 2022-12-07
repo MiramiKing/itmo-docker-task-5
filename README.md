@@ -69,7 +69,7 @@ docker-compose build
 ```yaml
 	deploy:
 		mode: replicated
-		replicas: 3
+		replicas: 4
 ```
 
 ## 2 Инициализация Swarm
