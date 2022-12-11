@@ -39,6 +39,7 @@ jobs:
         if: steps.cache-deps.outputs.cache-hit != 'true'
 
       - run: poetry install --no-interaction
-
+      
+      - run: pylint $(git ls-files '*.py')
 
       - run: poetry run pytest
