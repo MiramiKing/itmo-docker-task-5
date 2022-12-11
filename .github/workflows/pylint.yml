@@ -32,11 +32,12 @@ jobs:
           key: pydeps-${{ hashFiles('**/poetry.lock') }}
 
 
-      - run: poetry install --no-interaction --no-root
+      - run: cd app && poetry install --no-interaction --no-root
         if: steps.cache-deps.outputs.cache-hit != 'true'
 
-      - run: poetry install --no-interaction
+      - run: cd app && poetry install --no-interaction
       
-      - run: pylint $(git ls-files '*.py')
-
-      - run: poetry run pytest
+      - name: Analysing the code with pylint
+        run: pylint $(git ls-files '*.py')
+      - name: Test with pytest
+        run: pytest flask/
