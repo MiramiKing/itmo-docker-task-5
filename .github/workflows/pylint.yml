@@ -40,4 +40,4 @@ jobs:
       - name: Analysing the code with pylint
         run: cd app && poetry run pylint $(git ls-files '*.py')
       - name: Test with pytest
-        run: cd app && poetry run python pytest .
+        run: cd app && poetry run pytest 
